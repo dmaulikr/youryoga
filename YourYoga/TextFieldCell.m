@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 SaintsSoft LLC. All rights reserved.
 //
 
-#import "tfCell.h"
+#import "TextFieldCell.h"
 
 @implementation TextFieldCell
 

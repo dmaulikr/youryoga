@@ -9,7 +9,7 @@
 #import "SessionsManager.h"
 #import "Activities.h"
 #import "Activity.h"
-#import "tfCell.h"
+#import "TextFieldCell.h"
 
 #import "ActivityEdit.h"
 #import "Utilities.h"
