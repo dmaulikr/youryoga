@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52EB617219A1A8690095585A"
-               BuildableName = "YourYoga.app"
-               BlueprintName = "YourYoga"
+               BuildableName = "youryoga.app"
+               BlueprintName = "youryoga"
                ReferencedContainer = "container:YourYoga.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52EB617219A1A8690095585A"
-            BuildableName = "YourYoga.app"
-            BlueprintName = "YourYoga"
+            BuildableName = "youryoga.app"
+            BlueprintName = "youryoga"
             ReferencedContainer = "container:YourYoga.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52EB617219A1A8690095585A"
-            BuildableName = "YourYoga.app"
-            BlueprintName = "YourYoga"
+            BuildableName = "youryoga.app"
+            BlueprintName = "youryoga"
             ReferencedContainer = "container:YourYoga.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52EB617219A1A8690095585A"
-            BuildableName = "YourYoga.app"
-            BlueprintName = "YourYoga"
+            BuildableName = "youryoga.app"
+            BlueprintName = "youryoga"
             ReferencedContainer = "container:YourYoga.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -90,7 +90,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Distribution"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
