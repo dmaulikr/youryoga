@@ -97,28 +97,37 @@ static NSString* S_AddActivities = @"addActivities";
         // Delete the row from the data source
         [self.Manager.sessions removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
+        [self.Manager save];
+
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 
 
-/*
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-}
-*/
+    
+    Activities* activities = [self.Manager.sessions objectAtIndex:fromIndexPath.row];
+    [self.Manager.sessions removeObjectAtIndex:fromIndexPath.row];
+    [self.Manager.sessions insertObject:activities atIndex:toIndexPath.row];
+    [self.Manager save];
+    
+    //[self.Manager.sessions removeObjectAtIndex:fromIndexPath.row];
 
-/*
+}
+
+
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
+
 
 
 #pragma mark - Navigation

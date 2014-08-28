@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5204EB6A19AD0F6800948EAD /* Activities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5204EB6919AD0F6800948EAD /* Activities.m */; };
+		520E006319AD9C9800A5AA22 /* smile-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 520E006219AD9C9800A5AA22 /* smile-32.png */; };
+		520E006619AD9D4600A5AA22 /* StudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520E006519AD9D4600A5AA22 /* StudentController.m */; };
+		520E006919ADA30300A5AA22 /* StudentLessonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 520E006819ADA30300A5AA22 /* StudentLessonController.m */; };
+		520E006D19ADA73400A5AA22 /* ProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520E006C19ADA73400A5AA22 /* ProgressCell.m */; };
 		523E821719A56FA90068375B /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 523E821619A56FA90068375B /* Utilities.m */; };
 		523E821B19A58F170068375B /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523E821A19A58F170068375B /* AboutController.m */; };
 		525CDFAA19A453DD00D8588B /* tab-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 525CDFA819A453DD00D8588B /* tab-a.png */; };
@@ -67,6 +71,13 @@
 /* Begin PBXFileReference section */
 		5204EB6819AD0F6800948EAD /* Activities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activities.h; sourceTree = "<group>"; };
 		5204EB6919AD0F6800948EAD /* Activities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activities.m; sourceTree = "<group>"; };
+		520E006219AD9C9800A5AA22 /* smile-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smile-32.png"; sourceTree = "<group>"; };
+		520E006419AD9D4600A5AA22 /* StudentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentController.h; sourceTree = "<group>"; };
+		520E006519AD9D4600A5AA22 /* StudentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentController.m; sourceTree = "<group>"; };
+		520E006719ADA30300A5AA22 /* StudentLessonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLessonController.h; sourceTree = "<group>"; };
+		520E006819ADA30300A5AA22 /* StudentLessonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLessonController.m; sourceTree = "<group>"; };
+		520E006B19ADA73400A5AA22 /* ProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressCell.h; sourceTree = "<group>"; };
+		520E006C19ADA73400A5AA22 /* ProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressCell.m; sourceTree = "<group>"; };
 		523E821519A56FA90068375B /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		523E821619A56FA90068375B /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		523E821919A58F170068375B /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
@@ -156,9 +167,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520E006A19ADA70C00A5AA22 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				52AF3F8B19AD2F9000B1DBE6 /* TextFieldCell.h */,
+				52AF3F8C19AD2F9000B1DBE6 /* TextFieldCell.m */,
+				520E006B19ADA73400A5AA22 /* ProgressCell.h */,
+				520E006C19ADA73400A5AA22 /* ProgressCell.m */,
+			);
+			name = TableCell;
+			sourceTree = "<group>";
+		};
 		52E3650319A2315B004D11AF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				520E006219AD9C9800A5AA22 /* smile-32.png */,
 				52F24CC219AB314500025011 /* image-1.png */,
 				52F24CC319AB314500025011 /* image-2.png */,
 				52F24CC419AB314500025011 /* image-3.png */,
@@ -255,6 +278,7 @@
 		52EB61AE19A1A88C0095585A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				520E006A19ADA70C00A5AA22 /* TableCell */,
 				523E821919A58F170068375B /* AboutController.h */,
 				523E821A19A58F170068375B /* AboutController.m */,
 				52E3650019A2287C004D11AF /* ActivitiesController.h */,
@@ -277,8 +301,10 @@
 				52BB41EF19A4566C00023463 /* MoreController.m */,
 				52AF3F8619AD1AC100B1DBE6 /* SessionController.h */,
 				52AF3F8719AD1AC100B1DBE6 /* SessionController.m */,
-				52AF3F8B19AD2F9000B1DBE6 /* TextFieldCell.h */,
-				52AF3F8C19AD2F9000B1DBE6 /* TextFieldCell.m */,
+				520E006419AD9D4600A5AA22 /* StudentController.h */,
+				520E006519AD9D4600A5AA22 /* StudentController.m */,
+				520E006719ADA30300A5AA22 /* StudentLessonController.h */,
+				520E006819ADA30300A5AA22 /* StudentLessonController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -393,6 +419,7 @@
 				52EB618119A1A86A0095585A /* InfoPlist.strings in Resources */,
 				52F24CD019AB314500025011 /* image-3.png in Resources */,
 				52F24CD319AB314500025011 /* image-6.png in Resources */,
+				520E006319AD9C9800A5AA22 /* smile-32.png in Resources */,
 				52EB618A19A1A86A0095585A /* Main.storyboard in Resources */,
 				52F24CD619AB314500025011 /* image-9.png in Resources */,
 				52F24CD819AB314500025011 /* image-11.png in Resources */,
@@ -437,10 +464,13 @@
 				527CC88A19A2C31C007E8C13 /* ActivityEdit.m in Sources */,
 				52E8764519AC053400982A44 /* ActivityNotes.m in Sources */,
 				5204EB6A19AD0F6800948EAD /* Activities.m in Sources */,
+				520E006619AD9D4600A5AA22 /* StudentController.m in Sources */,
+				520E006919ADA30300A5AA22 /* StudentLessonController.m in Sources */,
 				52EB61B519A1AD9E0095585A /* Activity.m in Sources */,
 				52AF3F8819AD1AC100B1DBE6 /* SessionController.m in Sources */,
 				52E3650219A2287C004D11AF /* ActivitiesController.m in Sources */,
 				52EB618319A1A86A0095585A /* main.m in Sources */,
+				520E006D19ADA73400A5AA22 /* ProgressCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +547,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "e830d528-8193-4978-b5b2-c69a6b153c66";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

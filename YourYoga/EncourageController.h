@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EncourageController : UITableViewController
+@interface EncourageController : UIViewController
 
 @end

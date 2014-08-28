@@ -50,7 +50,7 @@
     soundUrl = [[mediaItem valueForProperty:MPMediaItemPropertyAssetURL] absoluteString];
     NSNumber* song = [mediaItem valueForProperty:MPMediaItemPropertyPersistentID];
     
-    [self playSong:song];
+    //[self playSong:song];
     self.activity.songId = song;
     self.activity.songTitle = soundName;
     

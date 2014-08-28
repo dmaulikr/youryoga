@@ -8,15 +8,15 @@
 #import "Activity.h"
 #import "Utilities.h"
 
-static NSString* P_Pid = @"pid";
-static NSString* P_Name = @"name";
-static NSString* P_Notes = @"notes";
-static NSString* P_Image = @"image";
-static NSString* P_SongName = @"song.name";
-static NSString* P_SongId = @"song.id";
+//static NSString* P_Pid = @"pid";
+static NSString* P_Name = @"activity.name";
+static NSString* P_Notes = @"activity.notes";
+static NSString* P_Image = @"activity.image";
+static NSString* P_SongName = @"activity.song.name";
+static NSString* P_SongId = @"activity.song.id";
 
-static NSString* P_DurationMin = @"duration.min";
-static NSString* P_DurationSec = @"duration.sec";
+static NSString* P_DurationMin = @"activity.duration.min";
+static NSString* P_DurationSec = @"activity.duration.sec";
 
 @interface Activity()
 {
@@ -38,9 +38,11 @@ static NSString* P_DurationSec = @"duration.sec";
         
         //
         // This case covers backwards compatibility, where, Pid did not exist in the original dictionary
+        /*
         if (!self.pid){
             self.pid = [Utilities GetUUID];
         }
+        */
 
     }
     return self;
@@ -51,7 +53,7 @@ static NSString* P_DurationSec = @"duration.sec";
 {
     self = [self init];
     if (self){
-        MASSERT(self.pid);
+        //MASSERT(self.pid);
         
         if (!name) name = @"Workout";
         if (!notes) notes = @"No pain, no gain";
@@ -73,7 +75,7 @@ static NSString* P_DurationSec = @"duration.sec";
     {
         _properties = [[NSMutableDictionary alloc]init];
         
-        if (!self.pid) self.pid = [Utilities GetUUID];
+        //if (!self.pid) self.pid = [Utilities GetUUID];
     }
     return self;
 }
@@ -97,7 +99,7 @@ static NSString* P_DurationSec = @"duration.sec";
     return rc;
 }
 
-
+/*
 -(NSString*)pid
 {
     return [self getPropertiy:P_Pid];
@@ -108,6 +110,7 @@ static NSString* P_DurationSec = @"duration.sec";
 {
     [self setPropertiy:P_Pid value:pid];
 }
+*/
 
 
 -(NSString*)name

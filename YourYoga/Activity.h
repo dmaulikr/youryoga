@@ -10,7 +10,7 @@
 
 @interface Activity : NSObject
 
-@property (atomic, strong) NSString* pid;
+//@property (atomic, strong) NSString* pid;
 @property (atomic, strong) NSString* name;
 @property (atomic, strong) NSString* notes;
 @property (atomic, strong) NSString* imageName;
