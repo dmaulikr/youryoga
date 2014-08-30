@@ -14,6 +14,7 @@ static NSString* P_Notes = @"activity.notes";
 static NSString* P_Image = @"activity.image";
 static NSString* P_SongName = @"activity.song.name";
 static NSString* P_SongId = @"activity.song.id";
+static NSString* P_VideoURL = @"activity.video.url";
 
 static NSString* P_DurationMin = @"activity.duration.min";
 static NSString* P_DurationSec = @"activity.duration.sec";
@@ -83,12 +84,7 @@ static NSString* P_DurationSec = @"activity.duration.sec";
 
 -(void)setPropertiy:(NSString*)PropertyId value:(NSString*)value
 {
-    if (value){
-        [_properties setObject:value forKey:PropertyId];
-    }
-    else {
-        NSAssert(value, @"null value not allowed.");
-    }
+    [_properties setObject:(value)?value:@"" forKey:PropertyId];
 
 }
 
@@ -96,7 +92,7 @@ static NSString* P_DurationSec = @"activity.duration.sec";
 -(NSString*)getPropertiy:(NSString*)PropertyId
 {
     NSString* rc = [_properties objectForKey:PropertyId];
-    return rc;
+    return (rc)?rc:@"";
 }
 
 /*
@@ -151,7 +147,8 @@ static NSString* P_DurationSec = @"activity.duration.sec";
 
 -(NSString*)durationMin
 {
-    return [self getPropertiy:P_DurationMin];
+    NSString* rc = [self getPropertiy:P_DurationMin];
+    return (rc.length>0)?rc:@"0";
 }
 
 
@@ -163,7 +160,8 @@ static NSString* P_DurationSec = @"activity.duration.sec";
 
 -(NSString*)durationSec
 {
-    return [self getPropertiy:P_DurationSec];
+    NSString* rc = [self getPropertiy:P_DurationSec];
+    return (rc.length>0)?rc:@"0";
 }
 
 
@@ -195,7 +193,7 @@ static NSString* P_DurationSec = @"activity.duration.sec";
 -(NSNumber*)songId
 {
     NSNumber* rc = [_properties objectForKey:P_SongId];
-    return rc;
+    return (rc)?rc:[NSNumber numberWithInt:0];
 }
 
 
@@ -205,6 +203,18 @@ static NSString* P_DurationSec = @"activity.duration.sec";
     [_properties setObject:name forKey:P_SongId];
 }
 
+
+-(NSString*)videoURL
+{
+    NSString* rc = [_properties objectForKey:P_VideoURL];
+    return rc;
+}
+
+
+-(void)setVideoURL:(NSNumber *)name
+{
+    [_properties setObject:name forKey:P_VideoURL];
+}
 
 
 - (NSDictionary*)save

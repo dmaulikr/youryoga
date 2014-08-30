@@ -14,6 +14,11 @@
 		520E006D19ADA73400A5AA22 /* ProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520E006C19ADA73400A5AA22 /* ProgressCell.m */; };
 		523E821719A56FA90068375B /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 523E821619A56FA90068375B /* Utilities.m */; };
 		523E821B19A58F170068375B /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523E821A19A58F170068375B /* AboutController.m */; };
+		525C1D6819B0F3690014A25C /* ActivityEditWebCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D6719B0F3690014A25C /* ActivityEditWebCell.m */; };
+		525C1D6B19B103670014A25C /* ActivityVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D6A19B103670014A25C /* ActivityVideoController.m */; };
+		525C1D6E19B1044E0014A25C /* VideoUrlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D6D19B1044E0014A25C /* VideoUrlCell.m */; };
+		525C1D7119B11BCE0014A25C /* MusicSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D7019B11BCE0014A25C /* MusicSelectionCell.m */; };
+		525C1D7419B131A00014A25C /* LessonWebCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D7319B131A00014A25C /* LessonWebCell.m */; };
 		525CDFAA19A453DD00D8588B /* tab-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 525CDFA819A453DD00D8588B /* tab-a.png */; };
 		525CDFAB19A453DD00D8588B /* tab-b.png in Resources */ = {isa = PBXBuildFile; fileRef = 525CDFA919A453DD00D8588B /* tab-b.png */; };
 		527CC88A19A2C31C007E8C13 /* ActivityEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 527CC88919A2C31C007E8C13 /* ActivityEdit.m */; };
@@ -21,6 +26,12 @@
 		52AF3F8D19AD2F9000B1DBE6 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3F8C19AD2F9000B1DBE6 /* TextFieldCell.m */; };
 		52BB41F019A4566C00023463 /* MoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BB41EF19A4566C00023463 /* MoreController.m */; };
 		52BB41F319A456A300023463 /* MoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BB41F219A456A300023463 /* MoreItem.m */; };
+		52BFC52719B0672C0010BE99 /* ActivityStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BFC52619B0672C0010BE99 /* ActivityStats.m */; };
+		52DABED019AFFDB1009BC70C /* LessonSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABECF19AFFDB1009BC70C /* LessonSelectionController.m */; };
+		52DABED319B00D16009BC70C /* SharingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABED219B00D16009BC70C /* SharingController.m */; };
+		52DABED619B0109B009BC70C /* SharingEMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABED519B0109B009BC70C /* SharingEMailController.m */; };
+		52DABEDA19B01A29009BC70C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52DABED919B01A29009BC70C /* MessageUI.framework */; };
+		52DABEDD19B02149009BC70C /* ExportFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABEDC19B02149009BC70C /* ExportFileInfo.m */; };
 		52DD77F219A2EBFA00D1C67C /* EncourageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD77F119A2EBFA00D1C67C /* EncourageController.m */; };
 		52E3650219A2287C004D11AF /* ActivitiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E3650119A2287C004D11AF /* ActivitiesController.m */; };
 		52E3650519A232E6004D11AF /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E3650419A232E6004D11AF /* default.png */; };
@@ -56,6 +67,9 @@
 		52F24CD719AB314500025011 /* image-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F24CCB19AB314500025011 /* image-10.png */; };
 		52F24CD819AB314500025011 /* image-11.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F24CCC19AB314500025011 /* image-11.png */; };
 		52F24CD919AB314500025011 /* image-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F24CCD19AB314500025011 /* image-12.png */; };
+		52F398E719AFCD3500CCAE62 /* E-mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F398E619AFCD3500CCAE62 /* E-mail.png */; };
+		52F4756719AEE79C00B283DC /* yogi-b.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4756619AEE79C00B283DC /* yogi-b.png */; };
+		52F4756919AEE9E200B283DC /* info-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F4756819AEE9E200B283DC /* info-1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +96,16 @@
 		523E821619A56FA90068375B /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		523E821919A58F170068375B /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		523E821A19A58F170068375B /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		525C1D6619B0F3690014A25C /* ActivityEditWebCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityEditWebCell.h; sourceTree = "<group>"; };
+		525C1D6719B0F3690014A25C /* ActivityEditWebCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityEditWebCell.m; sourceTree = "<group>"; };
+		525C1D6919B103670014A25C /* ActivityVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityVideoController.h; sourceTree = "<group>"; };
+		525C1D6A19B103670014A25C /* ActivityVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityVideoController.m; sourceTree = "<group>"; };
+		525C1D6C19B1044E0014A25C /* VideoUrlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoUrlCell.h; sourceTree = "<group>"; };
+		525C1D6D19B1044E0014A25C /* VideoUrlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoUrlCell.m; sourceTree = "<group>"; };
+		525C1D6F19B11BCE0014A25C /* MusicSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSelectionCell.h; sourceTree = "<group>"; };
+		525C1D7019B11BCE0014A25C /* MusicSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSelectionCell.m; sourceTree = "<group>"; };
+		525C1D7219B131A00014A25C /* LessonWebCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonWebCell.h; sourceTree = "<group>"; };
+		525C1D7319B131A00014A25C /* LessonWebCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonWebCell.m; sourceTree = "<group>"; };
 		525CDFA819A453DD00D8588B /* tab-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-a.png"; sourceTree = "<group>"; };
 		525CDFA919A453DD00D8588B /* tab-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-b.png"; sourceTree = "<group>"; };
 		527CC88819A2C31C007E8C13 /* ActivityEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityEdit.h; sourceTree = "<group>"; };
@@ -94,6 +118,17 @@
 		52BB41EF19A4566C00023463 /* MoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreController.m; sourceTree = "<group>"; };
 		52BB41F119A456A300023463 /* MoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreItem.h; sourceTree = "<group>"; };
 		52BB41F219A456A300023463 /* MoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreItem.m; sourceTree = "<group>"; };
+		52BFC52519B0672C0010BE99 /* ActivityStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityStats.h; sourceTree = "<group>"; };
+		52BFC52619B0672C0010BE99 /* ActivityStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityStats.m; sourceTree = "<group>"; };
+		52DABECE19AFFDB1009BC70C /* LessonSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonSelectionController.h; sourceTree = "<group>"; };
+		52DABECF19AFFDB1009BC70C /* LessonSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonSelectionController.m; sourceTree = "<group>"; };
+		52DABED119B00D16009BC70C /* SharingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingController.h; sourceTree = "<group>"; };
+		52DABED219B00D16009BC70C /* SharingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingController.m; sourceTree = "<group>"; };
+		52DABED419B0109B009BC70C /* SharingEMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingEMailController.h; sourceTree = "<group>"; };
+		52DABED519B0109B009BC70C /* SharingEMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingEMailController.m; sourceTree = "<group>"; };
+		52DABED919B01A29009BC70C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		52DABEDB19B02149009BC70C /* ExportFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportFileInfo.h; sourceTree = "<group>"; };
+		52DABEDC19B02149009BC70C /* ExportFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportFileInfo.m; sourceTree = "<group>"; };
 		52DD77F019A2EBFA00D1C67C /* EncourageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncourageController.h; sourceTree = "<group>"; };
 		52DD77F119A2EBFA00D1C67C /* EncourageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncourageController.m; sourceTree = "<group>"; };
 		52E3650019A2287C004D11AF /* ActivitiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesController.h; sourceTree = "<group>"; };
@@ -141,6 +176,9 @@
 		52F24CCB19AB314500025011 /* image-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-10.png"; sourceTree = "<group>"; };
 		52F24CCC19AB314500025011 /* image-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-11.png"; sourceTree = "<group>"; };
 		52F24CCD19AB314500025011 /* image-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-12.png"; sourceTree = "<group>"; };
+		52F398E619AFCD3500CCAE62 /* E-mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E-mail.png"; sourceTree = "<group>"; };
+		52F4756619AEE79C00B283DC /* yogi-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yogi-b.png"; sourceTree = "<group>"; };
+		52F4756819AEE9E200B283DC /* info-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52DABEDA19B01A29009BC70C /* MessageUI.framework in Frameworks */,
 				52EB617919A1A86A0095585A /* CoreGraphics.framework in Frameworks */,
 				52EB617B19A1A86A0095585A /* UIKit.framework in Frameworks */,
 				52EB617719A1A86A0095585A /* Foundation.framework in Frameworks */,
@@ -170,17 +209,35 @@
 		520E006A19ADA70C00A5AA22 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				525C1D6F19B11BCE0014A25C /* MusicSelectionCell.h */,
+				525C1D7019B11BCE0014A25C /* MusicSelectionCell.m */,
 				52AF3F8B19AD2F9000B1DBE6 /* TextFieldCell.h */,
 				52AF3F8C19AD2F9000B1DBE6 /* TextFieldCell.m */,
 				520E006B19ADA73400A5AA22 /* ProgressCell.h */,
 				520E006C19ADA73400A5AA22 /* ProgressCell.m */,
+				525C1D6619B0F3690014A25C /* ActivityEditWebCell.h */,
+				525C1D6719B0F3690014A25C /* ActivityEditWebCell.m */,
+				525C1D6C19B1044E0014A25C /* VideoUrlCell.h */,
+				525C1D6D19B1044E0014A25C /* VideoUrlCell.m */,
+				525C1D7219B131A00014A25C /* LessonWebCell.h */,
+				525C1D7319B131A00014A25C /* LessonWebCell.m */,
 			);
 			name = TableCell;
+			sourceTree = "<group>";
+		};
+		52BFC52819B0EF870010BE99 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		52E3650319A2315B004D11AF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				52F398E619AFCD3500CCAE62 /* E-mail.png */,
+				52F4756819AEE9E200B283DC /* info-1.png */,
+				52F4756619AEE79C00B283DC /* yogi-b.png */,
 				520E006219AD9C9800A5AA22 /* smile-32.png */,
 				52F24CC219AB314500025011 /* image-1.png */,
 				52F24CC319AB314500025011 /* image-2.png */,
@@ -205,6 +262,7 @@
 		52EB616A19A1A8690095585A = {
 			isa = PBXGroup;
 			children = (
+				52BFC52819B0EF870010BE99 /* iPad */,
 				52EB617C19A1A86A0095585A /* YourYoga */,
 				52EB619E19A1A86A0095585A /* YourYogaTests */,
 				52EB617519A1A8690095585A /* Frameworks */,
@@ -224,6 +282,7 @@
 		52EB617519A1A8690095585A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52DABED919B01A29009BC70C /* MessageUI.framework */,
 				52EB617619A1A8690095585A /* Foundation.framework */,
 				52EB617819A1A86A0095585A /* CoreGraphics.framework */,
 				52EB617A19A1A86A0095585A /* UIKit.framework */,
@@ -278,7 +337,6 @@
 		52EB61AE19A1A88C0095585A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				520E006A19ADA70C00A5AA22 /* TableCell */,
 				523E821919A58F170068375B /* AboutController.h */,
 				523E821A19A58F170068375B /* AboutController.m */,
 				52E3650019A2287C004D11AF /* ActivitiesController.h */,
@@ -293,18 +351,27 @@
 				52E8764419AC053400982A44 /* ActivityNotes.m */,
 				52E8764919AC05B100982A44 /* ActivityType.h */,
 				52E8764A19AC05B100982A44 /* ActivityType.m */,
+				525C1D6919B103670014A25C /* ActivityVideoController.h */,
+				525C1D6A19B103670014A25C /* ActivityVideoController.m */,
 				52EB618519A1A86A0095585A /* AppDelegate.h */,
 				52EB618619A1A86A0095585A /* AppDelegate.m */,
 				52DD77F019A2EBFA00D1C67C /* EncourageController.h */,
 				52DD77F119A2EBFA00D1C67C /* EncourageController.m */,
+				52DABECE19AFFDB1009BC70C /* LessonSelectionController.h */,
+				52DABECF19AFFDB1009BC70C /* LessonSelectionController.m */,
 				52BB41EE19A4566C00023463 /* MoreController.h */,
 				52BB41EF19A4566C00023463 /* MoreController.m */,
 				52AF3F8619AD1AC100B1DBE6 /* SessionController.h */,
 				52AF3F8719AD1AC100B1DBE6 /* SessionController.m */,
+				52DABED119B00D16009BC70C /* SharingController.h */,
+				52DABED219B00D16009BC70C /* SharingController.m */,
+				52DABED419B0109B009BC70C /* SharingEMailController.h */,
+				52DABED519B0109B009BC70C /* SharingEMailController.m */,
 				520E006419AD9D4600A5AA22 /* StudentController.h */,
 				520E006519AD9D4600A5AA22 /* StudentController.m */,
 				520E006719ADA30300A5AA22 /* StudentLessonController.h */,
 				520E006819ADA30300A5AA22 /* StudentLessonController.m */,
+				520E006A19ADA70C00A5AA22 /* TableCell */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -316,10 +383,14 @@
 				5204EB6919AD0F6800948EAD /* Activities.m */,
 				52EB61B319A1AD9E0095585A /* Activity.h */,
 				52EB61B419A1AD9E0095585A /* Activity.m */,
-				52EB61B619A1AE5E0095585A /* SessionsManager.h */,
-				52EB61B719A1AE5E0095585A /* SessionsManager.m */,
+				52DABEDB19B02149009BC70C /* ExportFileInfo.h */,
+				52DABEDC19B02149009BC70C /* ExportFileInfo.m */,
 				52BB41F119A456A300023463 /* MoreItem.h */,
 				52BB41F219A456A300023463 /* MoreItem.m */,
+				52EB61B619A1AE5E0095585A /* SessionsManager.h */,
+				52EB61B719A1AE5E0095585A /* SessionsManager.m */,
+				52BFC52519B0672C0010BE99 /* ActivityStats.h */,
+				52BFC52619B0672C0010BE99 /* ActivityStats.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -421,12 +492,15 @@
 				52F24CD319AB314500025011 /* image-6.png in Resources */,
 				520E006319AD9C9800A5AA22 /* smile-32.png in Resources */,
 				52EB618A19A1A86A0095585A /* Main.storyboard in Resources */,
+				52F4756719AEE79C00B283DC /* yogi-b.png in Resources */,
 				52F24CD619AB314500025011 /* image-9.png in Resources */,
+				52F4756919AEE9E200B283DC /* info-1.png in Resources */,
 				52F24CD819AB314500025011 /* image-11.png in Resources */,
 				52E3650719A235BC004D11AF /* weekly.png in Resources */,
 				52F24CD519AB314500025011 /* image-8.png in Resources */,
 				52F24CD919AB314500025011 /* image-12.png in Resources */,
 				52F24CCF19AB314500025011 /* image-2.png in Resources */,
+				52F398E719AFCD3500CCAE62 /* E-mail.png in Resources */,
 				52F24CD419AB314500025011 /* image-7.png in Resources */,
 				52E3650519A232E6004D11AF /* default.png in Resources */,
 				525CDFAA19A453DD00D8588B /* tab-a.png in Resources */,
@@ -460,16 +534,26 @@
 				52AF3F8D19AD2F9000B1DBE6 /* TextFieldCell.m in Sources */,
 				52BB41F319A456A300023463 /* MoreItem.m in Sources */,
 				52E8764E19AC1DE500982A44 /* ActivityMusic.m in Sources */,
+				525C1D6E19B1044E0014A25C /* VideoUrlCell.m in Sources */,
 				523E821B19A58F170068375B /* AboutController.m in Sources */,
+				52DABED619B0109B009BC70C /* SharingEMailController.m in Sources */,
 				527CC88A19A2C31C007E8C13 /* ActivityEdit.m in Sources */,
+				525C1D7419B131A00014A25C /* LessonWebCell.m in Sources */,
+				52DABED019AFFDB1009BC70C /* LessonSelectionController.m in Sources */,
 				52E8764519AC053400982A44 /* ActivityNotes.m in Sources */,
 				5204EB6A19AD0F6800948EAD /* Activities.m in Sources */,
+				525C1D6819B0F3690014A25C /* ActivityEditWebCell.m in Sources */,
 				520E006619AD9D4600A5AA22 /* StudentController.m in Sources */,
+				52DABED319B00D16009BC70C /* SharingController.m in Sources */,
 				520E006919ADA30300A5AA22 /* StudentLessonController.m in Sources */,
+				525C1D6B19B103670014A25C /* ActivityVideoController.m in Sources */,
 				52EB61B519A1AD9E0095585A /* Activity.m in Sources */,
+				52BFC52719B0672C0010BE99 /* ActivityStats.m in Sources */,
 				52AF3F8819AD1AC100B1DBE6 /* SessionController.m in Sources */,
+				52DABEDD19B02149009BC70C /* ExportFileInfo.m in Sources */,
 				52E3650219A2287C004D11AF /* ActivitiesController.m in Sources */,
 				52EB618319A1A86A0095585A /* main.m in Sources */,
+				525C1D7119B11BCE0014A25C /* MusicSelectionCell.m in Sources */,
 				520E006D19ADA73400A5AA22 /* ProgressCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

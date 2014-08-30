@@ -11,12 +11,11 @@
 #import "Activity.h"
 #import "ProgressCell.h"
 #import "Utilities.h"
+#import "LessonWebCell.h"
+
 
 @interface StudentLessonController ()
 {
-    NSTimer* activeTimer;
-    NSTimer* countdownTimer;
-    
     NSInteger durationCounter;
     float durationTotal;
     
@@ -24,9 +23,11 @@
     MPMusicPlayerController* mp;
     
 }
-@property (weak, nonatomic) IBOutlet UITableViewCell *activityTitleCell;
-@property (weak, nonatomic) IBOutlet ProgressCell *progressCell;
+//@property (weak, nonatomic) IBOutlet UITableViewCell *activityTitleCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *statusCell;
+@property (weak, nonatomic) IBOutlet LessonWebCell *webCell;
+
+//@property (weak, nonatomic) IBOutlet UITableViewCell *songCell;
 
 @end
 
@@ -45,7 +46,18 @@
 {
     [super viewDidLoad];
     
-    self.activityTitleCell.textLabel.text = self.session.name;
+    self.title = [NSString stringWithFormat:@"Session - %@", self.session.name];
+    //self.activityTitleCell.textLabel.text = self.session.name;
+    
+    UIBarButtonItem* play = self.navigationItem.rightBarButtonItem;
+    UIBarButtonItem* nextText = [[UIBarButtonItem alloc]initWithTitle:@"Next Pose" style:UIBarButtonItemStyleDone target:self action:@selector(startLession:)];
+    NSArray* rightItems = [[NSArray alloc]initWithObjects:play,nextText, nil];
+    self.navigationItem.rightBarButtonItems = rightItems;
+    
+    currentActivity = 0;
+
+    [self showActivity:[self.session.activities objectAtIndex:0]];
+    [self showVideo:[self.session.activities objectAtIndex:0]];
     
 }
 
@@ -59,26 +71,51 @@
     
     [mp setQueueWithQuery:mySongQuery];
     [mp play];
-    
-    
 }
 
+
+-(void)showVideo:(Activity*)current
+{
+    if (current.videoURL){
+        NSURL* url = [NSURL URLWithString:current.videoURL];
+        NSURLRequest* request = [[NSURLRequest alloc]initWithURL:url];
+        [self.webCell.webView loadRequest:request];
+    }
+}
+
+
+-(void)showActivity:(Activity*)current
+{
+    NSString* msg = [NSString stringWithFormat:@"%@ (%@:%@)",
+                     current.name,
+                     (current.durationMin)?current.durationMin:@"0",
+                     current.durationSec?current.durationSec:@"0"];
+
+    NSString* details;
+    
+    if (current.songTitle && current.songTitle.length > 0) {
+        details = [NSString stringWithFormat:@"%@\n%@", current.notes, current.songTitle];
+    }
+    else {
+        details = current.notes;
+    }
+    
+    self.statusCell.textLabel.text = msg;
+    self.statusCell.detailTextLabel.text = details;
+
+}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    if (activeTimer){
-        [activeTimer invalidate];
-        activeTimer = nil;
+    if (mp){
+        [mp stop];
+        mp = nil;
     }
-    if (countdownTimer){
-        [countdownTimer invalidate];
-        countdownTimer = nil;
-    }
-    
+
     [super viewWillDisappear:animated];
 }
 
-
+/*
 -(float)calculateDuration:(Activity*)activity
 {
     float minutes = [activity.durationMin floatValue];
@@ -92,124 +129,31 @@
 {
     float tick = (float)durationCounter / durationTotal;
     ++durationCounter;
-    [self.progressCell.timer setProgress:tick animated:FALSE];
+    //[self.progressCell.timer setProgress:tick animated:FALSE];
 }
--(void)taskAdvance:(NSTimer*)timer
+*/
+
+-(void)advance
 {
     NSLog(@"taskAdvance");
     
-    MASSERT(self.progressCell);
-    MASSERT(self.progressCell.progress);
-    
-    [timer invalidate];
-    activeTimer = nil;
-    
     ++currentActivity;
-
-    
-    double progress = (double)currentActivity / (double)self.session.activities.count;
-    [self.progressCell.progress setProgress:progress animated:TRUE];
-    
-    if (currentActivity < self.session.activities.count) {
-        Activity* current = [self.session.activities objectAtIndex:currentActivity];
-        if (current){
-            [self playSong:current.songId];
-            
-            NSString* msg = [NSString stringWithFormat:@"%@:%@ %@",
-                             current.durationMin,
-                             current.durationSec,
-                             current.name];
-            
-            self.statusCell.textLabel.text = msg;
-            self.statusCell.detailTextLabel.text = current.notes;
-            
-            float duration = [self calculateDuration:current];
-            
-            durationCounter = 0;
-            durationTotal = duration;
-            [self.progressCell.timer setProgress:0.0f animated:FALSE];
-
-            activeTimer = [NSTimer scheduledTimerWithTimeInterval:duration
-                                                           target:self
-                                                         selector:@selector(taskAdvance:)
-                                                         userInfo:nil
-                                                          repeats:NO];
-            [self.tableView reloadData];
-            
-        }
-        
-    }
-    else {
-        self.statusCell.textLabel.text = @"Done";
-        self.statusCell.detailTextLabel.text = @"";
-        [self.progressCell.progress setHidden:TRUE];
-        [self.progressCell.timer setHidden:TRUE];
-        [self.progressCell.timer setProgress:0.0f animated:FALSE];
-        [self.progressCell.progress setProgress:0.0f animated:FALSE];
-        [self.startLessonButton setEnabled:TRUE];
-        if (mp){
-            [mp stop];
-            mp = nil;
-        }
-        
-        if (countdownTimer){
-            [countdownTimer invalidate];
-            countdownTimer = nil;
-        }
-
+    if (currentActivity >= self.session.activities.count){
+        currentActivity = 0;
     }
     
+    Activity* current = [self.session.activities objectAtIndex:currentActivity];
+    if (current){
+        [self showVideo:current];
+        [self playSong:current.songId];
+        [self showActivity:current];
+        [self.tableView reloadData];
+    }
 }
 
 
 - (IBAction)startLession:(id)sender {
-    NSLog(@"startLession clicked");
-
-    currentActivity = 0;
-    durationCounter = 0;
-    if (currentActivity < self.session.activities.count)
-    {
-        [self.startLessonButton setEnabled:FALSE];
-        
-        [self.progressCell.timer setProgress:0.0f animated:TRUE];
-        [self.progressCell.progress setProgress:0.0f animated:TRUE];
-        
-        [self.progressCell.progress setHidden:FALSE];
-        [self.progressCell.timer setHidden:FALSE];
-        
-        
-        countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f
-                                                          target:self
-                                                        selector:@selector(countDown:)
-                                                        userInfo:nil
-                                                         repeats:YES];
-
-        
-        Activity* current = [self.session.activities objectAtIndex:currentActivity];
-        if (current){
-            [self playSong:current.songId];
-            NSString* msg = [NSString stringWithFormat:@"%@:%@ %@",
-                             current.durationMin,
-                             current.durationSec,
-                             current.name];
-            
-            self.statusCell.textLabel.text = msg;
-            self.statusCell.detailTextLabel.text = current.notes;
-            
-            float duration = [self calculateDuration:current];
-            durationCounter = 0;
-            durationTotal = duration;
-            [self.progressCell.timer setProgress:0.0f animated:FALSE];
-            
-
-            activeTimer = [NSTimer scheduledTimerWithTimeInterval:duration
-                                                           target:self
-                                                         selector:@selector(taskAdvance:)
-                                                         userInfo:nil
-                                                          repeats:NO];
-        }
-    }
-    
+    [self advance];
 }
 
 - (void)didReceiveMemoryWarning
@@ -219,15 +163,5 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

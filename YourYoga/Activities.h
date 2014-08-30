@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ActivityStats.h"
+
 
 @interface Activities : NSObject
 {
@@ -16,6 +18,8 @@
 
 @property (atomic, strong) NSString* name;
 @property (atomic, strong) NSMutableArray* activities;
+
++(ActivityStats*)summaryStats:(Activities*)activities;
 
 -(id)init;
 -(id)initWithDictionary:(NSDictionary*)d;

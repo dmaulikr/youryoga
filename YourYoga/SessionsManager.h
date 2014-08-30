@@ -16,12 +16,20 @@ static NSString* NM_ActivitiesHaveBeenUpdated = @"SessionsHaveBeenUpdated";
     NSMutableArray* _sessions;
 }
 
+
 @property (atomic, strong) NSMutableArray* sessions;
+@property (atomic, strong) NSString* documentFile;
+
 
 +(SessionsManager*)defaultInstance;
 
+-(id)init;
+-(id)initUsingFile:(NSString*)file;
+
+-(void)import:(SessionsManager*)other;
+
 -(void)load;
 -(void)save;
-
+-(void)saveAndNotify:(BOOL)andNotify;
 
 @end

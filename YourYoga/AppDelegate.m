@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+NSString* S_NotifyImportFile = @"ImportFile";
+//NSString* S_NotifyImportFile = @"ImportFile";
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,7 +18,37 @@
     // Override point for customization after application launch.
     return YES;
 }
-							
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    
+    if (url != nil && [url isFileURL]) {
+        
+        /*
+        NSString* msg = [NSString stringWithFormat:@"File %@", [url absoluteString]];
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Title" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        */
+        
+        NSMutableDictionary* userInfo = [[NSMutableDictionary alloc]init];
+        NSString* file = [url absoluteString];
+        [userInfo setObject:file forKey:S_NotifyImportFile];
+                                         
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"ImportFile" object:nil userInfo:userInfo];
+        
+        if ([[url pathExtension] isEqualToString:@"yytraining"]) {
+            
+            NSLog(@"URL:%@", [url absoluteString]);
+            
+        }
+        
+    }
+    
+    return YES;
+}
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

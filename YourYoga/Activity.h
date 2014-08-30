@@ -16,6 +16,8 @@
 @property (atomic, strong) NSString* imageName;
 @property (atomic, strong) NSString* songTitle;
 @property (atomic, strong) NSNumber* songId;
+@property (atomic, strong) NSString* songURL;
+@property (atomic, strong) NSString* videoURL;
 @property (atomic, strong) NSString* durationMin;
 @property (atomic, strong) NSString* durationSec;
 

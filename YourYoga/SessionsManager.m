@@ -5,7 +5,7 @@
 //  Created by john on 8/17/14.
 //  Copyright (c) 2014 SaintsSoft LLC. All rights reserved.
 //
-#define DOCUMENTS_FILE @"activities.V1.xml"
+#define DEF_DOCUMENTS_FILE @"activities.V1.xml"
 #import "SessionsManager.h"
 #import "Utilities.h"
 
@@ -38,17 +38,41 @@ static SessionsManager* _default;
 }
 
 
--(id)init
+
+
+-(id)initUsingFile:(NSString*)file
 {
     self = [super init];
     if (self)
     {
+        _documentFile = file;
         [self load];
     }
     return self;
 }
 
 
+
+-(id)init
+{
+    self = [super init];
+    if (self)
+    {
+        //_documentFile = DEF_DOCUMENTS_FILE;
+        [self load];
+    }
+    return self;
+}
+
+
+-(void)import:(SessionsManager*)other
+{
+    if (other){
+        for(Activities* activities in other.sessions){
+            [self addActivities:activities];
+        }
+    }
+}
 
 -(bool)addActivities:(Activities*)activities
 {
@@ -59,6 +83,12 @@ static SessionsManager* _default;
 
 -(NSString*)defaultFilename
 {
+    if (self.documentFile) {
+        return self.documentFile;
+    }
+    
+    //self.documentFile = DEF_DOCUMENTS_FILE;
+    
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     if (!paths || paths.count < 1){
         NSAssert(paths && paths.count > 0, @"NSSearchPathForDirectoriesInDomains failed");
@@ -70,7 +100,8 @@ static SessionsManager* _default;
         return nil;
     }
     
-    NSString* file = [path stringByAppendingPathComponent:DOCUMENTS_FILE];
+    
+    NSString* file = [path stringByAppendingPathComponent:DEF_DOCUMENTS_FILE];
     
     return file;
 }
@@ -86,8 +117,14 @@ static SessionsManager* _default;
         }
         
         self.sessions = [[NSMutableArray alloc]init];
+        //NSLog(@"Loading file %@", fn);
         
+        // try loading file
         NSDictionary* d = [[NSMutableDictionary alloc]initWithContentsOfFile:fn];
+        if (!d) {
+            // try loading from url, the case for importing xml files
+            d = [[NSMutableDictionary alloc]initWithContentsOfURL:[NSURL URLWithString:fn]];
+        }
         if (d){
             NSMutableArray* load = [d objectForKey:P_Sessions];
             if (load){
@@ -103,6 +140,12 @@ static SessionsManager* _default;
 
 
 -(void)save
+{
+    [self saveAndNotify:YES];
+    
+}
+
+-(void)saveAndNotify:(BOOL)andNotify
 {
     do
     {
@@ -126,7 +169,10 @@ static SessionsManager* _default;
             NSLog(@"***ERROR: file save failed! %@", fn);
         }
         
-        [[NSNotificationCenter defaultCenter]postNotificationName:NM_ActivitiesHaveBeenUpdated object:self.sessions];
+        if (andNotify)
+        {
+            [[NSNotificationCenter defaultCenter]postNotificationName:NM_ActivitiesHaveBeenUpdated object:self.sessions];
+        }
         
     }while (false);
     

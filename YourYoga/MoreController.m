@@ -52,6 +52,13 @@
     mi = [[MoreItem alloc]initWithTitle:@"Support" description:[NSString stringWithFormat:@"[App Version %@]", [self loadBuildInfo]] url:@"http://saintsoftware.blogspot.com/search/label/youryoga"];
     [self.items addObject:mi];
     
+    //
+    mi = [[MoreItem alloc]initWithTitle:@"Yoga for Beginners" description:@"YouTube Yoga training with Adriiene, find what feels good." url:@"https://www.youtube.com/watch?v=OQ6NfFIr2jw"];
+    [self.items addObject:mi];
+
+    mi = [[MoreItem alloc]initWithTitle:@"Yoga with Adriiene" description:@"YouTube Yoga training with Adriiene, find what feels good." url:@"https://www.youtube.com/channel/UCFKE7WVJfvaHW5q283SxchA"];
+    [self.items addObject:mi];
+
     
     mi = [[MoreItem alloc]initWithTitle:@"Yoga Anonymous" description:@"An open platform that allows teachers, studios, event promoters, and bloggers a place to interact with the community at large" url:@"http://yoganonymous.com/"];
     [self.items addObject:mi];

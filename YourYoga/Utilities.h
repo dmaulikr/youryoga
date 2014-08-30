@@ -31,4 +31,8 @@
 
 + (NSString *)GetUUID;
 
+
++(void)addHelp:(UINavigationItem*)navigationItem;
+
+
 @end

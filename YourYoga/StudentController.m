@@ -10,6 +10,7 @@
 
 #import "SessionsManager.h"
 #import "Activities.h"
+#import "ActivityStats.h"
 #import "Utilities.h"
 
 
@@ -38,12 +39,31 @@ static NSString* S_StartActivitity = @"startActivity";
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activitiesUpdated) name:NM_ActivitiesHaveBeenUpdated object:nil];
 
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initializeMenu];
+}
+
+-(void)helpMenu
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://saintsoftware.blogspot.com/2014/08/student-view-help-your-yoga-app.html"]];
+}
+
+
+-(void)initializeMenu
+{
+    UIBarButtonItem* existing = self.navigationItem.rightBarButtonItem;
+    if (existing){
+        NSMutableArray* ma = [[NSMutableArray alloc]init];
+        UIBarButtonItem* helpItem = [[UIBarButtonItem alloc]initWithTitle:@"Help-?" style:UIBarButtonItemStylePlain target:self action:@selector(helpMenu)];
+        [ma addObject:helpItem];
+        [ma addObject:existing];
+        self.navigationItem.rightBarButtonItems = ma;
+    } else{
+        UIBarButtonItem* helpItem = [[UIBarButtonItem alloc]initWithTitle:@"Help-?" style:UIBarButtonItemStylePlain target:self action:@selector(helpMenu)];
+        MASSERT(helpItem);
+        if (helpItem){
+            self.navigationItem.rightBarButtonItem = helpItem;
+        }
+    }
 }
 
 
@@ -78,8 +98,15 @@ static NSString* S_StartActivitity = @"startActivity";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"activityCell" forIndexPath:indexPath];
     
     if (cell){
-        Activities* activity = self.Manager.sessions[indexPath.row];
-        cell.textLabel.text = activity.name;
+        Activities* activities = self.Manager.sessions[indexPath.row];
+        cell.textLabel.text = activities.name;
+        
+        ActivityStats* stats = [Activities summaryStats:activities];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"(%ld) Poses taking %ldm:%lds",
+                                     (long)stats.totalTasks,
+                                     (long)stats.totalMin,
+                                     (long)stats.totalSec];
+
     }
     
     return cell;

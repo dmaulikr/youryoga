@@ -5,6 +5,8 @@
 //  Created by john on 8/18/14.
 //  Copyright (c) 2014 SaintsSoft LLC. All rights reserved.
 //
+#import "AppDelegate.h"
+
 #import "ActivitiesController.h"
 #import "SessionsManager.h"
 #import "Activities.h"
@@ -22,7 +24,7 @@
 #define ACTIVITY_CELL @"workoutCell"
 static NSString* S_ActivityNameCell = @"ActivityNameCell";
 
-#define NUMBER_OF_DETAIL_LINES 4
+//#define NUMBER_OF_DETAIL_LINES 6
 
 @interface ActivitiesController ()
 {
@@ -40,6 +42,7 @@ enum {
     Section_Count,
 };
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -48,6 +51,7 @@ enum {
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -61,13 +65,15 @@ enum {
     }
 }
 
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [self.view.window endEditing:YES];
     self.session.name = tfCell.textField.text;
     [[SessionsManager defaultInstance]save];
-    
 }
+
+
 -(void)didReceiveMemoryWarning
 {
     // Drop the overflow, out of memory
@@ -83,6 +89,7 @@ enum {
 {
     return Section_Count;
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -136,6 +143,7 @@ enum {
     
     return rc;
 }
+
 
 - (IBAction)editClicked:(id)sender {
     @try {
@@ -192,6 +200,7 @@ enum {
     }
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section > Section_Name) return YES;
     else return NO;
@@ -212,6 +221,7 @@ enum {
     
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView detailCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
@@ -223,11 +233,13 @@ enum {
             if (activity){
                 cell.textLabel.text = activity.name;
                 cell.detailTextLabel.text = activity.notes;
-                cell.detailTextLabel.numberOfLines = NUMBER_OF_DETAIL_LINES;
+                //cell.detailTextLabel.numberOfLines = NUMBER_OF_DETAIL_LINES;
                 cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
                 cell.selectionStyle = UITableViewCellSelectionStyleBlue;
                 NSString* imageName = activity.imageName ? activity.imageName : @"default.png";
                 cell.imageView.image = [UIImage imageNamed:imageName];
+                
+                
             }
         }
         else {
@@ -240,32 +252,48 @@ enum {
     }
     
     return cell;
-    
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView nameCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TextFieldCell *cell;
+    UITableViewCell *cell;
     
     @try {
-        tfCell = [tableView dequeueReusableCellWithIdentifier:S_ActivityNameCell forIndexPath:indexPath];
+        cell = tfCell = [tableView dequeueReusableCellWithIdentifier:S_ActivityNameCell forIndexPath:indexPath];
         if (tfCell){
-            Activity* activity = [self.session.activities objectAtIndex:indexPath.row];
-            if (activity){
-                [tfCell.textField setText:self.session.name];
-            }
+            [tfCell.textField setText:self.session.name];
         }
         else {
             MASSERT(tfCell); // This should NEVER happen, only way it does is if we change the name of the activity cell identifier
+            cell = [Utilities errorCell];
+            cell.detailTextLabel.text = @"N/A";
         }
     }
     @catch (NSException *exception) {
-        //cell = [Utilities errorCell];
-        //cell.detailTextLabel.text = exception.description;
+        [Utilities logException:exception faultSelector:_cmd];
+        cell = [Utilities errorCell];
+        cell.detailTextLabel.text = exception.description;
     }
     
-    return tfCell;
+    return cell;
     
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat rowHeight = 44.0f;
+    
+    switch(indexPath.section){
+        case Section_Name:
+            break;
+            
+        case Section_Details:
+            rowHeight = 120;
+            break;
+    }
+    return rowHeight;
 }
 
 
@@ -291,7 +319,6 @@ enum {
     
     return cell;
 }
-
 
 
 // Override to support conditional editing of the table view.

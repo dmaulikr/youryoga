@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *activityDurationCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *activityNotesCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *activityMusicCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *activityVideoCell;
 
 
 @end
@@ -116,6 +117,10 @@
         if (self.activityDurationCell){
             self.activityDurationCell.detailTextLabel.text = [self.activity durationMinutesAndSecionds];
         }
+        if (self.activityVideoCell){
+            self.activityVideoCell.detailTextLabel.text = [self.activity videoURL];
+        }
+        [self.tableView reloadData];
     }
     
 }

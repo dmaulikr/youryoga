@@ -5,6 +5,8 @@
 //  Created by john on 8/26/14.
 //  Copyright (c) 2014 SaintsSoft LLC. All rights reserved.
 //
+#import "AppDelegate.h"
+#import "ActivityStats.h"
 
 #import "SessionController.h"
 #import "ActivitiesController.h"
@@ -14,8 +16,21 @@
 static NSString* S_EditActivities = @"editActivities";
 static NSString* S_AddActivities = @"addActivities";
 
+enum Buttons {
+    Button_OK,
+    Button_Cancel,
+};
 
 @interface SessionController ()
+{
+    //
+    // BUGBUG
+    // Potential race condition using a single instance field. If user quickly opens two different CSV's
+    // then we'll have a problem with this strategy. Chances of that case are minimal.
+    // jkountz Aug 28, 2014
+    NSString* importFileName;
+}
+
 
 @end
 
@@ -30,14 +45,80 @@ static NSString* S_AddActivities = @"addActivities";
     return self;
 }
 
+-(void)doImport:(NSString*)file
+{
+    if (file){
+        NSLog(@"Importing %@", file);
+        SessionsManager* other = [[SessionsManager alloc]initUsingFile:file];
+        if (other){
+            [self.Manager import:other];
+            [self.Manager save];
+            [self.tableView reloadData];
+        }
+        else {
+            MASSERT(false);
+        }
+    }
+    else {
+        MASSERT(false);
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == Button_OK){
+        [self doImport:importFileName];
+    }
+}
+
+
+-(void)importFile:(NSNotification*)notify
+{
+    //NSLog(@"Notified of import");
+    importFileName = [notify.userInfo objectForKey:S_NotifyImportFile];
+    
+    NSString* msg = [NSString stringWithFormat:@"Import new activities?"];
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Confirm" message:msg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    [alert show];
+
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(importFile:) name:S_NotifyImportFile object:nil];
     
     self.Manager = [SessionsManager defaultInstance];
     
+
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    [self initializeMenu];
 }
+
+-(void)helpMenu
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://saintsoftware.blogspot.com/2014/08/yogi-view-help-your-yoga-app.html"]];
+}
+
+-(void)initializeMenu
+{
+    UIBarButtonItem* existing = self.navigationItem.rightBarButtonItem;
+    if (existing){
+        NSMutableArray* ma = [[NSMutableArray alloc]init];
+        UIBarButtonItem* helpItem = [[UIBarButtonItem alloc]initWithTitle:@"Help-?" style:UIBarButtonItemStylePlain target:self action:@selector(helpMenu)];
+        [ma addObject:helpItem];
+        [ma addObject:existing];
+        self.navigationItem.rightBarButtonItems = ma;
+    } else{
+        UIBarButtonItem* helpItem = [[UIBarButtonItem alloc]initWithTitle:@"Help-?" style:UIBarButtonItemStylePlain target:self action:@selector(helpMenu)];
+        MASSERT(helpItem);
+        if (helpItem){
+            self.navigationItem.rightBarButtonItem = helpItem;
+        }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -68,6 +149,13 @@ static NSString* S_AddActivities = @"addActivities";
     if (cell){
         Activities* activities = [self.Manager.sessions objectAtIndex:indexPath.row];
         cell.textLabel.text = activities.name;
+        
+        ActivityStats* stats = [Activities summaryStats:activities];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"(%ld) Poses taking %ldm:%lds",
+                                     (long)stats.totalTasks,
+                                     (long)stats.totalMin,
+                                     (long)stats.totalSec];
+                                     
     }
     else {
         cell = [Utilities errorCell];

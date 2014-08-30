@@ -7,6 +7,8 @@
 //
 #import "Activity.h"
 #import "Activities.h"
+#import "ActivityStats.h"
+
 
 static NSString* P_Name = @"activities.name";
 static NSString* P_Activities = @"activities.items";
@@ -45,6 +47,25 @@ static NSString* P_Activities = @"activities.items";
     return self;
 }
 
+
++(ActivityStats*)summaryStats:(Activities*)activities
+{
+    NSInteger totalSeconds = 0;
+    ActivityStats* stats = [[ActivityStats alloc]init];
+    
+    stats.totalTasks = activities.activities.count;
+    
+    for(int x = 0; x < activities.activities.count; ++x){
+        Activity* a = [activities.activities objectAtIndex:x];
+        totalSeconds += 60 * [a.durationMin intValue];
+        totalSeconds += [a.durationSec intValue];
+    }
+    
+    stats.totalMin = totalSeconds / 60;
+    stats.totalSec = totalSeconds % 60;
+    
+    return stats;
+}
 
 -(NSDictionary*)save
 {

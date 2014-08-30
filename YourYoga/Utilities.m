@@ -152,6 +152,9 @@ static long curFreeMem = 0;
 }
 
 
++(void)addHelp:(UINavigationItem*)navigationItem
+{
+}
 
 @end
 
