@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>m.sessions</key>
+	<array>
+		<dict>
+			<key>activities.items</key>
+			<array>
+				<dict>
+					<key>activity.duration.min</key>
+					<string>2</string>
+					<key>activity.duration.sec</key>
+					<string>15</string>
+					<key>activity.name</key>
+					<string>Child</string>
+					<key>activity.notes</key>
+					<string>Nice easy starting pose, relax while listening to your breathing. </string>
+					<key>activity.video.url</key>
+					<string>http://m.youtube.com/watch?v=l-mtV34Afok</string>
+				</dict>
+				<dict>
+					<key>activity.duration.min</key>
+					<string>2</string>
+					<key>activity.duration.sec</key>
+					<string>15</string>
+					<key>activity.name</key>
+					<string>Downward dog</string>
+					<key>activity.notes</key>
+					<string>A chance to get down on all fours, looks like inverted V. 
+</string>
+					<key>activity.video.url</key>
+					<string>http://m.youtube.com/watch?v=w43eUOjHkpA</string>
+				</dict>
+				<dict>
+					<key>activity.duration.min</key>
+					<string>5</string>
+					<key>activity.duration.sec</key>
+					<string>15</string>
+					<key>activity.image</key>
+					<string>image-9.png</string>
+					<key>activity.name</key>
+					<string>Warrior II</string>
+					<key>activity.video.url</key>
+					<string>http://m.youtube.com/watch?v=4Ejz7IgODlU</string>
+				</dict>
+			</array>
+			<key>activities.name</key>
+			<string>beginners easy yoga poses</string>
+		</dict>
+	</array>
+</dict>
+</plist>

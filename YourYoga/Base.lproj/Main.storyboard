@@ -503,7 +503,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Yogi activity setup" footerTitle="Music will play for the duration of this activity." id="P56-MJ-i9I">
+                            <tableViewSection headerTitle="Activity setup" id="P56-MJ-i9I">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="1Gd-wc-6tj" detailTextLabel="3j4-LL-Lza" style="IBUITableViewCellStyleValue1" id="kM2-a0-Zb5">
                                         <rect key="frame" x="0.0" y="119" width="320" height="44"/>
@@ -775,7 +775,7 @@
                             <tableViewSection headerTitle="Press Play to begin" id="IqT-xo-UEh">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statusCell" textLabel="jhM-WD-Zi6" detailTextLabel="hbR-3S-RD5" rowHeight="77" style="IBUITableViewCellStyleSubtitle" id="dKs-fY-HBw">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="77"/>
+                                        <rect key="frame" x="0.0" y="149" width="320" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKs-fY-HBw" id="I5N-ZV-3aP">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
@@ -799,7 +799,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LessonWebCell" rowHeight="700" id="lfL-Xs-PLz" customClass="LessonWebCell">
-                                        <rect key="frame" x="0.0" y="196" width="320" height="700"/>
+                                        <rect key="frame" x="0.0" y="226" width="320" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lfL-Xs-PLz" id="zgW-1X-b9W">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="699"/>

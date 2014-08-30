@@ -27,6 +27,7 @@
 		52BB41F019A4566C00023463 /* MoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BB41EF19A4566C00023463 /* MoreController.m */; };
 		52BB41F319A456A300023463 /* MoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BB41F219A456A300023463 /* MoreItem.m */; };
 		52BFC52719B0672C0010BE99 /* ActivityStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BFC52619B0672C0010BE99 /* ActivityStats.m */; };
+		52CB025919B1B59E00A21668 /* startingactivities.xml in Resources */ = {isa = PBXBuildFile; fileRef = 52CB025819B1B4C800A21668 /* startingactivities.xml */; };
 		52DABED019AFFDB1009BC70C /* LessonSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABECF19AFFDB1009BC70C /* LessonSelectionController.m */; };
 		52DABED319B00D16009BC70C /* SharingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABED219B00D16009BC70C /* SharingController.m */; };
 		52DABED619B0109B009BC70C /* SharingEMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DABED519B0109B009BC70C /* SharingEMailController.m */; };
@@ -120,6 +121,7 @@
 		52BB41F219A456A300023463 /* MoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreItem.m; sourceTree = "<group>"; };
 		52BFC52519B0672C0010BE99 /* ActivityStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityStats.h; sourceTree = "<group>"; };
 		52BFC52619B0672C0010BE99 /* ActivityStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityStats.m; sourceTree = "<group>"; };
+		52CB025819B1B4C800A21668 /* startingactivities.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = startingactivities.xml; path = YourYoga/startingactivities.xml; sourceTree = "<group>"; };
 		52DABECE19AFFDB1009BC70C /* LessonSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonSelectionController.h; sourceTree = "<group>"; };
 		52DABECF19AFFDB1009BC70C /* LessonSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonSelectionController.m; sourceTree = "<group>"; };
 		52DABED119B00D16009BC70C /* SharingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingController.h; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		52EB616A19A1A8690095585A = {
 			isa = PBXGroup;
 			children = (
+				52CB025819B1B4C800A21668 /* startingactivities.xml */,
 				52BFC52819B0EF870010BE99 /* iPad */,
 				52EB617C19A1A86A0095585A /* YourYoga */,
 				52EB619E19A1A86A0095585A /* YourYogaTests */,
@@ -483,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB025919B1B59E00A21668 /* startingactivities.xml in Resources */,
 				52F24CD119AB314500025011 /* image-4.png in Resources */,
 				52F24CD719AB314500025011 /* image-10.png in Resources */,
 				52EB619219A1A86A0095585A /* Images.xcassets in Resources */,

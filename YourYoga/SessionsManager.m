@@ -107,6 +107,15 @@ static SessionsManager* _default;
 }
 
 
+-(void)extractStartingActivities
+{
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"startingactivities" ofType:@"xml"];
+    SessionsManager* samples = [[SessionsManager alloc]initUsingFile:filepath];
+    if(samples){
+        [self import:samples];
+    }
+}
+
 -(void)load
 {
     do
@@ -134,6 +143,11 @@ static SessionsManager* _default;
                 }
             }
         }
+        else {
+            [self extractStartingActivities];
+        }
+        
+        
         
     }while (false);
 }
