@@ -763,7 +763,7 @@
             </objects>
             <point key="canvasLocation" x="-262" y="-137"/>
         </scene>
-        <!--Student Lesson Controller - Lesson-->
+        <!--Student Lesson Controller-->
         <scene sceneID="6g4-l6-dBC">
             <objects>
                 <tableViewController id="7uD-Dh-Hrt" customClass="StudentLessonController" sceneMemberID="viewController">
@@ -798,40 +798,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="progressCell" rowHeight="19" id="xQ2-27-3Ef" customClass="ProgressCell">
-                                        <rect key="frame" x="0.0" y="196" width="320" height="19"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xQ2-27-3Ef" id="zZ2-Rm-FuE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="18"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fdw-uo-HgX">
-                                                    <rect key="frame" x="20" y="13" width="280" height="2"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="2" id="HKU-AT-NnD"/>
-                                                    </constraints>
-                                                    <color key="progressTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </progressView>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-OX-2hf">
-                                                    <rect key="frame" x="20" y="5.5" width="280" height="2"/>
-                                                </progressView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="MPf-OX-2hf" firstAttribute="leading" secondItem="zZ2-Rm-FuE" secondAttribute="leading" constant="20" id="Maf-tJ-bjU"/>
-                                                <constraint firstItem="Fdw-uo-HgX" firstAttribute="leading" secondItem="zZ2-Rm-FuE" secondAttribute="leading" constant="20" id="apY-AE-7Zb"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fdw-uo-HgX" secondAttribute="bottom" constant="13" id="bbt-r2-mYX"/>
-                                                <constraint firstItem="Fdw-uo-HgX" firstAttribute="top" secondItem="MPf-OX-2hf" secondAttribute="bottom" constant="13" id="fqU-LM-fkh"/>
-                                                <constraint firstAttribute="trailing" secondItem="MPf-OX-2hf" secondAttribute="trailing" constant="20" id="tPJ-y8-BrU"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fdw-uo-HgX" secondAttribute="trailing" constant="20" id="w5X-Zc-tpF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="progress" destination="MPf-OX-2hf" id="RQX-9u-Awb"/>
-                                            <outlet property="timer" destination="Fdw-uo-HgX" id="ZBx-Aa-LSU"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LessonWebCell" rowHeight="700" id="lfL-Xs-PLz" customClass="LessonWebCell">
-                                        <rect key="frame" x="0.0" y="215" width="320" height="700"/>
+                                        <rect key="frame" x="0.0" y="196" width="320" height="700"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lfL-Xs-PLz" id="zgW-1X-b9W">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="699"/>
@@ -865,7 +833,7 @@
                             <outlet property="delegate" destination="7uD-Dh-Hrt" id="Rif-Qq-huE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lesson" id="dvI-KQ-3OU">
+                    <navigationItem key="navigationItem" prompt="The Lesson" id="dvI-KQ-3OU">
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="kZt-tj-QHW">
                             <connections>
                                 <action selector="startLession:" destination="7uD-Dh-Hrt" id="w0j-Fx-bTh"/>

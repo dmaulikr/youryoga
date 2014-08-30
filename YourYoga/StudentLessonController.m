@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"Session - %@", self.session.name];
+    self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.session.name];
     //self.activityTitleCell.textLabel.text = self.session.name;
     
     UIBarButtonItem* play = self.navigationItem.rightBarButtonItem;

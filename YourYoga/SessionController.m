@@ -98,7 +98,7 @@ enum Buttons {
 
 -(void)helpMenu
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://saintsoftware.blogspot.com/2014/08/yogi-view-help-your-yoga-app.html"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://youryogapp.blogspot.com/2014/08/yogi-view.html"]];
 }
 
 -(void)initializeMenu

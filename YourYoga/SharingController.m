@@ -33,7 +33,7 @@
 
 -(void)helpMenu
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://saintsoftware.blogspot.com/2014/08/sharing-view-help-your-yoga-app.html"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://youryogapp.blogspot.com/2014/08/sharing.html"]];
 }
 
 -(void)initializeMenu

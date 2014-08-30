@@ -44,7 +44,7 @@ static NSString* S_StartActivitity = @"startActivity";
 
 -(void)helpMenu
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://saintsoftware.blogspot.com/2014/08/student-view-help-your-yoga-app.html"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://youryogapp.blogspot.com/2014/08/student-view.html"]];
 }
 
 
