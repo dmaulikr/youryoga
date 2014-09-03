@@ -15,7 +15,21 @@ static NSString* P_Activities = @"activities.items";
 
 @implementation Activities
 
+- (NSString*)formattedStringForDuration:(NSTimeInterval)duration
+{
+    NSInteger minutes = floor(duration/60);
+    NSInteger seconds = round(duration - minutes * 60);
+    return [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+}
 
+
+-(void)logActivity:(Activity*)activity duration:(NSTimeInterval)duration
+{
+    NSString* d = [self formattedStringForDuration:duration];
+    
+    NSString* log = [NSString stringWithFormat:@"%@,%@,%@,%@", self.name, activity.name, d, [NSDate date]];
+    NSLog(@"%@", log);
+}
 
 -(id)init
 {
@@ -92,7 +106,7 @@ static NSString* P_Activities = @"activities.items";
         return _name;
     }
     else {
-        return @"new activity";
+        return @"new pose";
     }
 }
 

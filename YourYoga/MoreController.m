@@ -53,10 +53,10 @@
     [self.items addObject:mi];
     
     //
-    mi = [[MoreItem alloc]initWithTitle:@"Yoga for Beginners" description:@"YouTube Yoga training with Adriiene, find what feels good." url:@"https://www.youtube.com/watch?v=OQ6NfFIr2jw"];
+    mi = [[MoreItem alloc]initWithTitle:@"Yoga for Beginners" description:@"YouTube Yoga training with Adriene, find what feels good." url:@"https://www.youtube.com/watch?v=OQ6NfFIr2jw"];
     [self.items addObject:mi];
 
-    mi = [[MoreItem alloc]initWithTitle:@"Yoga with Adriiene" description:@"YouTube Yoga training with Adriiene, find what feels good." url:@"https://www.youtube.com/channel/UCFKE7WVJfvaHW5q283SxchA"];
+    mi = [[MoreItem alloc]initWithTitle:@"Yoga with Adriene" description:@"YouTube Yoga training with Adriene, find what feels good." url:@"https://www.youtube.com/channel/UCFKE7WVJfvaHW5q283SxchA"];
     [self.items addObject:mi];
 
     

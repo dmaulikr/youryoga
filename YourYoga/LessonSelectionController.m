@@ -10,8 +10,10 @@
 #import "SharingEMailController.h"
 #import "Utilities.h"
 #import "ExportFileInfo.h"
+#import "Activities.h"
+#import "ActivityStats.h"
 
-@interface LessonSelectionController ()
+@interface LessonSelectionController () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong)SessionsManager* Manager;
 @property (nonatomic, strong)NSMutableArray* Selections;
@@ -38,6 +40,31 @@
 }
 
 
+- (IBAction)composeEmail:(id)sender {
+    
+    if ([MFMailComposeViewController canSendMail]){
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        
+        [controller setSubject:@"YourYoga Lessons"];
+        [controller setMessageBody:@"I wanted to share the attached Lessons." isHTML:NO];
+        
+        ExportFileInfo* efi = [self buildExportFile];
+        if (efi){
+            [controller addAttachmentData:efi.Data mimeType:@"XML" fileName:efi.Filename];
+            
+            [self presentModalViewController:controller animated:YES];
+        }
+        else {
+            MASSERT(nil != efi);
+        }
+    }
+    else {
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"EMail Not Setup" message:@"Email is not setup on this device. Please configure it before trying this option" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+
+}
 
 
 -(ExportFileInfo*)generateExportFileName
@@ -118,6 +145,24 @@
 }
 
 
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent)
+    {
+        //NSLog(@"It's away!");
+    }
+    else if (error)
+    {
+        [Utilities logError:[error description]];
+    }
+    
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    //[self dismissModalViewControllerAnimated:YES];
+}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -174,9 +219,16 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell" forIndexPath:indexPath];
     
-    Activity* activity = self.Manager.sessions[indexPath.row];
-    cell.textLabel.text = activity.name;
-    
+    Activities* activities = self.Manager.sessions[indexPath.row];
+    cell.textLabel.text = activities.name;
+    ActivityStats* stats = [Activities summaryStats:activities];
+    if (stats){
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"(%ld) Poses taking %ldm:%lds",
+                                     (long)stats.totalTasks,
+                                     (long)stats.totalMin,
+                                     (long)stats.totalSec];
+        
+    }
     return cell;
 }
 

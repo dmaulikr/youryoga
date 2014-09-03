@@ -16,8 +16,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="I0B-ja-ump" kind="relationship" relationship="viewControllers" id="Tkr-BH-JSB"/>
                         <segue destination="5mN-xu-P5e" kind="relationship" relationship="viewControllers" id="FHa-fz-OhZ"/>
+                        <segue destination="I0B-ja-ump" kind="relationship" relationship="viewControllers" id="Tkr-BH-JSB"/>
                         <segue destination="qIq-Sp-6W1" kind="relationship" relationship="viewControllers" id="l8b-iM-5v4"/>
                         <segue destination="eF8-ln-kFD" kind="relationship" relationship="viewControllers" id="oZ0-1R-p7G"/>
                         <segue destination="DjI-OK-7E7" kind="relationship" relationship="viewControllers" id="J3E-Pe-TVL"/>
@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="-714" y="-1558"/>
         </scene>
-        <!--Activities Controller - Session Activities-->
+        <!--Activities Controller - Lesson Poses-->
         <scene sceneID="fOF-2G-9uv">
             <objects>
                 <tableViewController id="zHA-aB-TPc" customClass="ActivitiesController" sceneMemberID="viewController">
@@ -140,7 +140,7 @@
                             <outlet property="delegate" destination="zHA-aB-TPc" id="udy-R2-jC0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Session Activities" id="g1D-EI-KdD">
+                    <navigationItem key="navigationItem" title="Lesson Poses" id="g1D-EI-KdD">
                         <barButtonItem key="backBarButtonItem" title="Sessions" id="KPg-8e-Xyr"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4GN-pI-tfi">
                             <connections>
@@ -153,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="196" y="-837"/>
         </scene>
-        <!--Activity Type - Activity Selection-->
+        <!--Activity Type - Pose Selection-->
         <scene sceneID="YM6-uh-cGT">
             <objects>
                 <tableViewController id="8qe-Mv-Cjk" customClass="ActivityType" sceneMemberID="viewController">
@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Choose an activity" footerTitle="If no good match exists, override by typing in the Name field." id="cqI-UJ-sxv">
+                            <tableViewSection headerTitle="Choose a pose" footerTitle="If no good match exists, override by typing in the Name field." id="cqI-UJ-sxv">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="88" id="m8e-8f-nNv">
                                         <rect key="frame" x="0.0" y="55" width="320" height="88"/>
@@ -206,7 +206,7 @@
                             <outlet property="delegate" destination="8qe-Mv-Cjk" id="p2d-bR-BLv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Activity Selection" id="APn-e9-asY"/>
+                    <navigationItem key="navigationItem" title="Pose Selection" id="APn-e9-asY"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -279,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Activity Duration" footerTitle="Time in minutes (MIN) and seconds (SEC)" id="ZHh-XN-kFJ">
+                            <tableViewSection headerTitle="Estimated Duration" footerTitle="Time in minutes (MIN) and seconds (SEC)" id="ZHh-XN-kFJ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="256" id="55S-CA-WW9">
                                         <rect key="frame" x="0.0" y="119" width="320" height="256"/>
@@ -494,7 +494,7 @@
             </objects>
             <point key="canvasLocation" x="1599" y="-35"/>
         </scene>
-        <!--Activity Edit - Activity-->
+        <!--Activity Edit - Pose-->
         <scene sceneID="yWb-I7-qfj">
             <objects>
                 <tableViewController id="tX7-8R-3hr" customClass="ActivityEdit" sceneMemberID="viewController">
@@ -503,7 +503,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Activity setup" id="P56-MJ-i9I">
+                            <tableViewSection headerTitle="Pose setup" id="P56-MJ-i9I">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="1Gd-wc-6tj" detailTextLabel="3j4-LL-Lza" style="IBUITableViewCellStyleValue1" id="kM2-a0-Zb5">
                                         <rect key="frame" x="0.0" y="119" width="320" height="44"/>
@@ -649,7 +649,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Activity" id="e6W-O6-Ygg">
+                    <navigationItem key="navigationItem" title="Pose" id="e6W-O6-Ygg">
                         <barButtonItem key="backBarButtonItem" title="Activities" id="VbQ-4a-RCb"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -698,11 +698,11 @@
             </objects>
             <point key="canvasLocation" x="-709" y="565"/>
         </scene>
-        <!--Navigation Controller - Student-->
+        <!--Navigation Controller - My Yoga-->
         <scene sceneID="J0W-9j-rmE">
             <objects>
                 <navigationController definesPresentationContext="YES" id="5mN-xu-P5e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Student" image="weekly.png" id="RZV-ug-drK"/>
+                    <tabBarItem key="tabBarItem" title="My Yoga" image="weekly.png" id="RZV-ug-drK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wuZ-87-1HD">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -937,37 +937,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="f2q-32-V4b">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="3" indentationWidth="10" textLabel="xR6-Uk-RWk" detailTextLabel="ZfB-uf-uvp" style="IBUITableViewCellStyleSubtitle" id="why-FD-RDw">
-                                        <rect key="frame" x="0.0" y="163" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="why-FD-RDw" id="y0T-Nr-KKf">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Print" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xR6-Uk-RWk">
-                                                    <rect key="frame" x="45" y="3" width="38" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Print details for a lession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZfB-uf-uvp">
-                                                    <rect key="frame" x="45" y="25" width="138" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
-                                        </accessibility>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="rBE-o7-GCd" id="YxY-fW-uCr"/>
@@ -989,7 +958,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityCell" textLabel="bxK-ou-pe9" style="IBUITableViewCellStyleDefault" id="OA1-49-2nN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityCell" textLabel="bxK-ou-pe9" detailTextLabel="7o1-h0-kzP" style="IBUITableViewCellStyleSubtitle" id="OA1-49-2nN">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OA1-49-2nN" id="F5A-LL-za7">
@@ -997,9 +966,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bxK-ou-pe9">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7o1-h0-kzP">
+                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1014,16 +990,13 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="z9d-p6-fRb">
-                        <barButtonItem key="rightBarButtonItem" title="Next..." id="NQx-Bh-9QS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="iqk-sp-O00">
                             <connections>
-                                <action selector="nextClicked:" destination="PUw-Xf-DYC" id="sbd-g6-A9y"/>
+                                <action selector="composeEmail:" destination="PUw-Xf-DYC" id="ghK-Z4-k8d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="Ii8-yF-gFT" kind="push" identifier="showEmail" id="jgV-Mp-X72"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7v-Gv-RrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1041,7 +1014,7 @@
                             <tableViewSection headerTitle="Verify" footerTitle="Lessons selected to be shared with another YourYoga (c) App User" id="hGT-Eh-NfS">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="191" id="aVa-sw-MWZ">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="191"/>
+                                        <rect key="frame" x="0.0" y="55" width="320" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aVa-sw-MWZ" id="oNM-NT-tgF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>

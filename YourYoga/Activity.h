@@ -13,7 +13,7 @@
 //@property (atomic, strong) NSString* pid;
 @property (atomic, strong) NSString* name;
 @property (atomic, strong) NSString* notes;
-@property (atomic, strong) NSString* imageName;
+//@property (atomic, strong) NSString* imageName;
 @property (atomic, strong) NSString* songTitle;
 @property (atomic, strong) NSNumber* songId;
 @property (atomic, strong) NSString* songURL;

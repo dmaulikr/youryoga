@@ -231,14 +231,24 @@ enum {
         if (cell){
             Activity* activity = [self.session.activities objectAtIndex:indexPath.row];
             if (activity){
-                cell.textLabel.text = activity.name;
-                cell.detailTextLabel.text = activity.notes;
-                //cell.detailTextLabel.numberOfLines = NUMBER_OF_DETAIL_LINES;
+                cell.textLabel.text = [NSString stringWithFormat:@"%@ (%ld:%ld)",activity.name, (long)activity.durationMin.integerValue, (long)activity.durationSec.integerValue ];
+
+                NSMutableString* sb = [[NSMutableString alloc]initWithString:[activity.notes stringByTrimmingCharactersInSet:
+                                                                              [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                
+                
+                if (activity.videoURL && activity.videoURL.length > 0)
+                {
+                    [sb appendFormat:@" HAS VIDEO"];
+                }
+                if (activity.songId && activity.songId.integerValue > 0)
+                {
+                    [sb appendFormat:@" HAS MUSIC"];
+                }
+                cell.detailTextLabel.text = sb;
+
                 cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
                 cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-                NSString* imageName = activity.imageName ? activity.imageName : @"default.png";
-                cell.imageView.image = [UIImage imageNamed:imageName];
-                
                 
             }
         }

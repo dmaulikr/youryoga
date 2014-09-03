@@ -135,12 +135,17 @@ static SessionsManager* _default;
             d = [[NSMutableDictionary alloc]initWithContentsOfURL:[NSURL URLWithString:fn]];
         }
         if (d){
+            bool foundActivities = false;
             NSMutableArray* load = [d objectForKey:P_Sessions];
             if (load){
                 for(NSDictionary* d in load){
+                    foundActivities = TRUE;
                     Activities* a = [[Activities alloc]initWithDictionary:d];
                     [self.sessions addObject:a];
                 }
+            }
+            if (!foundActivities){
+                [self extractStartingActivities];
             }
         }
         else {

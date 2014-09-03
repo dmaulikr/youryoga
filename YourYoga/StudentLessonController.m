@@ -27,6 +27,10 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *statusCell;
 @property (weak, nonatomic) IBOutlet LessonWebCell *webCell;
 
+@property (nonatomic, strong) Activity* activityTracking;
+@property (nonatomic, strong) NSDate* start;
+@property (nonatomic, strong) NSDate* end;
+
 //@property (weak, nonatomic) IBOutlet UITableViewCell *songCell;
 
 @end
@@ -42,24 +46,56 @@
     return self;
 }
 
+-(void)refreshPrompt
+{
+    self.navigationItem.prompt = [NSString stringWithFormat:@"%@ %ld of %ld", self.session.name, (long)(1+currentActivity), (long)self.session.activities.count];
+}
+
+-(void)backPressed:(NSObject*)sender
+{
+    [self trackActivityChange:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationItem.prompt = [NSString stringWithFormat:@"%@", self.session.name];
-    //self.activityTitleCell.textLabel.text = self.session.name;
+
+    [self refreshPrompt];
     
     UIBarButtonItem* play = self.navigationItem.rightBarButtonItem;
     UIBarButtonItem* nextText = [[UIBarButtonItem alloc]initWithTitle:@"Next Pose" style:UIBarButtonItemStyleDone target:self action:@selector(startLession:)];
     NSArray* rightItems = [[NSArray alloc]initWithObjects:play,nextText, nil];
     self.navigationItem.rightBarButtonItems = rightItems;
     
+    UIBarButtonItem* back = self.navigationItem.leftBarButtonItem;
+    if (!back){
+        back = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(backPressed:)];
+        self.navigationItem.leftBarButtonItem = back;
+    }
+    //back.target = self;
+    //back.action = @selector(backPressed:);
+    
+    //
+    // Register first activity as started as soon as it's displayed
     currentActivity = 0;
+    self.start = [NSDate date];
+    if (self.session.activities && self.session.activities.count > 0){
+        self.activityTracking = self.session.activities[currentActivity];
+        
+        [self showActivity:[self.session.activities objectAtIndex:0]];
+        [self showVideo:[self.session.activities objectAtIndex:0]];
+    }
+}
 
-    [self showActivity:[self.session.activities objectAtIndex:0]];
-    [self showVideo:[self.session.activities objectAtIndex:0]];
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
 }
+
+
 
 -(void)playSong:(NSNumber*)persistentId
 {
@@ -112,6 +148,7 @@
         mp = nil;
     }
 
+    //[self trackActivityChange:nil];
     [super viewWillDisappear:animated];
 }
 
@@ -142,13 +179,32 @@
         currentActivity = 0;
     }
     
+    if (self.session.activities.count <= 0) return;
+    
     Activity* current = [self.session.activities objectAtIndex:currentActivity];
     if (current){
+        [self trackActivityChange:current];
+        self.start = [NSDate date];
         [self showVideo:current];
         [self playSong:current.songId];
         [self showActivity:current];
         [self.tableView reloadData];
+        [self refreshPrompt];
     }
+}
+
+
+-(void)trackActivityChange:(Activity*)current
+{
+    if (self.activityTracking){
+        self.end = [NSDate date];
+        // log duration
+        NSTimeInterval secs = [self.end timeIntervalSinceDate:self.start];
+        if(secs){
+            [self.session logActivity:self.activityTracking duration:secs];
+        }
+    }
+    self.activityTracking = current;
 }
 
 

@@ -32,4 +32,5 @@ static NSString* NM_ActivitiesHaveBeenUpdated = @"SessionsHaveBeenUpdated";
 -(void)save;
 -(void)saveAndNotify:(BOOL)andNotify;
 
+
 @end

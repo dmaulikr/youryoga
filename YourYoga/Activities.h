@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Activity.h"
 #import "ActivityStats.h"
 
 
@@ -24,5 +25,8 @@
 -(id)init;
 -(id)initWithDictionary:(NSDictionary*)d;
 -(NSDictionary*)save;
+
+
+-(void)logActivity:(Activity*)activity duration:(NSTimeInterval)duration;
 
 @end

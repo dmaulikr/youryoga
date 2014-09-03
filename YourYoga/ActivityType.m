@@ -11,7 +11,7 @@
 @interface ActivityType () <UITextFieldDelegate, UIPickerViewDelegate>
 {
     NSMutableArray* excerciseRoutines;
-    NSMutableArray* excerciseImages;
+    //NSMutableArray* excerciseImages;
     
 }
 @property (weak, nonatomic) IBOutlet UIPickerView *excercisePicker;
@@ -45,7 +45,7 @@
         if ([s isEqualToString:_activity.name]){
             [self.excercisePicker selectRow:x inComponent:0 animated:YES];
             
-            self.activity.imageName =  [excerciseImages objectAtIndex:x];
+            //self.activity.imageName =  [excerciseImages objectAtIndex:x];
             break;
         }
     }
@@ -72,7 +72,7 @@
  - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
      
      [self.activityNameText setText:[excerciseRoutines objectAtIndex:row]];
-     self.activity.imageName = [excerciseImages objectAtIndex:row];
+     //self.activity.imageName = [excerciseImages objectAtIndex:row];
 }
 
 
@@ -107,17 +107,17 @@
     [excerciseRoutines addObject:@"Camel"];  // Triangle Pose
     [excerciseRoutines addObject:@"Lord of Dance"];  // Mountain
 
-    /*
-    //[excerciseRoutines addObject:@"Downward-Facing Dog Pose"];
-    [excerciseRoutines addObject:@"Ananta's pose"];
+    
+    [excerciseRoutines addObject:@"Downward-Facing Dog"];
+    [excerciseRoutines addObject:@"Ananta's"];
     [excerciseRoutines addObject:@"Crescent Moon"];
     [excerciseRoutines addObject:@"Half moon"];
-    [excerciseRoutines addObject:@"Half lord of the fishes pose"];
+    [excerciseRoutines addObject:@"Half lord of the fishes"];
     [excerciseRoutines addObject:@"Half boat posture"];
-    [excerciseRoutines addObject:@"Astavarkra's pose"];
+    [excerciseRoutines addObject:@"Astavarkra's"];
     [excerciseRoutines addObject:@"Bound angle"];
     [excerciseRoutines addObject:@"Crane"];
-    [excerciseRoutines addObject:@"Child's Pose"];
+    [excerciseRoutines addObject:@"Child's"];
     [excerciseRoutines addObject:@"Bharadvaja's twist"];
     [excerciseRoutines addObject:@"Frog"];
     [excerciseRoutines addObject:@"Cobra"];
@@ -132,9 +132,9 @@
     [excerciseRoutines addObject:@"Eagle pose"];
     [excerciseRoutines addObject:@"Cow faced pose"];
     [excerciseRoutines addObject:@"Plough"];
-    */
+    [excerciseRoutines sortUsingSelector:@selector(compare:)];
     
-    
+    /*
     excerciseImages = [[NSMutableArray alloc]init];
     [excerciseImages addObject:@"image-2.png"]; // Tree pose
     [excerciseImages addObject:@"image-4.png"]; // Triangle Pose
@@ -143,6 +143,7 @@
     [excerciseImages addObject:@"image-9.png"]; // Warrior II
     [excerciseImages addObject:@"image-7.png"]; // Camel
     [excerciseImages addObject:@"image-12.png"]; // Lord of Dance
+    */
     
     /*
     [excerciseImages addObject:@"image-1.png"];
@@ -176,7 +177,7 @@
     [excerciseImages addObject:@"image-12.png"];
     */
     
-    MASSERT(excerciseImages.count == excerciseRoutines.count);
+    //MASSERT(excerciseImages.count == excerciseRoutines.count);
 }
 
 @end
