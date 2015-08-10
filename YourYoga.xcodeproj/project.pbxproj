@@ -21,6 +21,7 @@
 		525C1D7419B131A00014A25C /* LessonWebCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 525C1D7319B131A00014A25C /* LessonWebCell.m */; };
 		525CDFAA19A453DD00D8588B /* tab-a.png in Resources */ = {isa = PBXBuildFile; fileRef = 525CDFA819A453DD00D8588B /* tab-a.png */; };
 		525CDFAB19A453DD00D8588B /* tab-b.png in Resources */ = {isa = PBXBuildFile; fileRef = 525CDFA919A453DD00D8588B /* tab-b.png */; };
+		5265A6131B6C8256002766A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5265A6121B6C8256002766A1 /* FBSDKCoreKit.framework */; };
 		527CC88A19A2C31C007E8C13 /* ActivityEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 527CC88919A2C31C007E8C13 /* ActivityEdit.m */; };
 		52AF3F8819AD1AC100B1DBE6 /* SessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3F8719AD1AC100B1DBE6 /* SessionController.m */; };
 		52AF3F8D19AD2F9000B1DBE6 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AF3F8C19AD2F9000B1DBE6 /* TextFieldCell.m */; };
@@ -108,6 +109,7 @@
 		525C1D7319B131A00014A25C /* LessonWebCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonWebCell.m; sourceTree = "<group>"; };
 		525CDFA819A453DD00D8588B /* tab-a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-a.png"; sourceTree = "<group>"; };
 		525CDFA919A453DD00D8588B /* tab-b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-b.png"; sourceTree = "<group>"; };
+		5265A6121B6C8256002766A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../External/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		527CC88819A2C31C007E8C13 /* ActivityEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityEdit.h; sourceTree = "<group>"; };
 		527CC88919A2C31C007E8C13 /* ActivityEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityEdit.m; sourceTree = "<group>"; };
 		52AF3F8619AD1AC100B1DBE6 /* SessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionController.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5265A6131B6C8256002766A1 /* FBSDKCoreKit.framework in Frameworks */,
 				52DABEDA19B01A29009BC70C /* MessageUI.framework in Frameworks */,
 				52EB617919A1A86A0095585A /* CoreGraphics.framework in Frameworks */,
 				52EB617B19A1A86A0095585A /* UIKit.framework in Frameworks */,
@@ -282,6 +285,7 @@
 		52EB617519A1A8690095585A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5265A6121B6C8256002766A1 /* FBSDKCoreKit.framework */,
 				52DABED919B01A29009BC70C /* MessageUI.framework */,
 				52EB617619A1A8690095585A /* Foundation.framework */,
 				52EB617819A1A86A0095585A /* CoreGraphics.framework */,
@@ -452,7 +456,7 @@
 				ORGANIZATIONNAME = "SaintsSoft LLC";
 				TargetAttributes = {
 					52EB617219A1A8690095585A = {
-						DevelopmentTeam = D7MU2ZFK64;
+						DevelopmentTeam = 5QHNJ95UW4;
 					};
 					52EB619619A1A86A0095585A = {
 						TestTargetID = 52EB617219A1A8690095585A;
@@ -644,12 +648,22 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/john/Documents/SaintsSoft/code/External/FacebookSDK,
+					/Users/john/Documents/SaintsSoft/code/External/nanigans,
+					API/NanigansSDK.ios,
+					17/NanigansSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YourYoga/YourYoga-Prefix.pch";
 				INFOPLIST_FILE = "YourYoga/YourYoga-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YourYoga/YourYoga-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -751,12 +765,22 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/john/Documents/SaintsSoft/code/External/FacebookSDK,
+					/Users/john/Documents/SaintsSoft/code/External/nanigans,
+					API/NanigansSDK.ios,
+					17/NanigansSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YourYoga/YourYoga-Prefix.pch";
 				INFOPLIST_FILE = "YourYoga/YourYoga-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YourYoga/YourYoga-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -771,13 +795,22 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/john/Documents/SaintsSoft/code/External/FacebookSDK,
+					/Users/john/Documents/SaintsSoft/code/External/nanigans,
+					API/NanigansSDK.ios,
+					17/NanigansSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YourYoga/YourYoga-Prefix.pch";
 				INFOPLIST_FILE = "YourYoga/YourYoga-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9831b6d6-71b8-4ca5-b27d-12fe872bef0f";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YourYoga/YourYoga-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

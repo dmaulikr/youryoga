@@ -141,8 +141,6 @@ static long curFreeMem = 0;
 }
 
 
-
-
 + (NSString *)GetUUID
 {
     CFUUIDRef theUUID = CFUUIDCreate(NULL);
@@ -151,10 +149,45 @@ static long curFreeMem = 0;
     return (__bridge NSString *)string;
 }
 
-
-+(void)addHelp:(UINavigationItem*)navigationItem
+void xor_encrypt(char *key, char *string, int n)
 {
+    int i;
+    int keyLength = strlen(key);
+    for( i = 0 ; i < n ; i++ )
+    {
+        string[i]=string[i]^key[i%keyLength];
+    }
 }
+
+char S_Key[] = "NowIstheTime4AllGood!Programmers";
+
+
++(NSData*)encode:(NSString*)filename
+{
+    NSData* bytes = nil;
+    
+    NSData* data = [NSData dataWithContentsOfFile:filename];
+    if (data){
+        NSString* s = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        if (s){
+            const char* pcsz = [s cStringUsingEncoding:NSUTF8StringEncoding];
+            if (pcsz){
+                
+                int length = strlen(pcsz);
+                char* psz = (char*)pcsz;
+                
+                xor_encrypt(S_Key, psz, length);
+                
+                bytes = [[NSData alloc]initWithBytes:(const void*)psz length:length];
+                
+            }
+        }
+    }
+    
+    return bytes;
+}
+
+
 
 @end
 

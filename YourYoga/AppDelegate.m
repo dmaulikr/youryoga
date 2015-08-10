@@ -5,6 +5,8 @@
 //  Created by john on 8/17/14.
 //  Copyright (c) 2014 SaintsSoft LLC. All rights reserved.
 //
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <NanigansSDK/NanigansSDK.h>
 
 #import "AppDelegate.h"
 
@@ -15,21 +17,14 @@ NSString* S_NotifyImportFile = @"ImportFile";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     
     if (url != nil && [url isFileURL]) {
-        
-        /*
-        NSString* msg = [NSString stringWithFormat:@"File %@", [url absoluteString]];
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Title" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-        */
-        
         NSMutableDictionary* userInfo = [[NSMutableDictionary alloc]init];
         NSString* file = [url absoluteString];
         [userInfo setObject:file forKey:S_NotifyImportFile];
@@ -41,12 +36,14 @@ NSString* S_NotifyImportFile = @"ImportFile";
             NSLog(@"URL:%@", [url absoluteString]);
             
         }
-        
+        return YES;
     }
-    
-    return YES;
+   
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -63,7 +60,7 @@ NSString* S_NotifyImportFile = @"ImportFile";
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

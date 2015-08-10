@@ -32,7 +32,7 @@
 + (NSString *)GetUUID;
 
 
-+(void)addHelp:(UINavigationItem*)navigationItem;
++(NSData*)encode:(NSString*)filename;
 
 
 @end
