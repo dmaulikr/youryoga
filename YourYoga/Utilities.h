@@ -32,7 +32,4 @@
 + (NSString *)GetUUID;
 
 
-+(NSData*)encode:(NSString*)filename;
-
-
 @end
